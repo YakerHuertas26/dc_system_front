@@ -1,9 +1,9 @@
-import BtnForm from "@/src/shared/forms/BtnForm";
-import Form from "@/src/shared/forms/Form";
-import InputForm from "@/src/shared/forms/InputForm";
-import LabelForm from "@/src/shared/forms/LabelForm";
+'use client'
+import { useForm } from "react-hook-form";
+import {BtnForm, InputForm, LabelForm, Form} from "@/src/shared/components/forms";
 
 export default function FormLogin() {
+    const {register, handleSubmit, formState: { errors }  } = useForm()
     return (
         <Form>
             <div className="mb-6">
@@ -11,8 +11,8 @@ export default function FormLogin() {
                 <InputForm
                     type="text"
                     id="name"
-                    name="name"
                     className=" border-dc-pink-200 focus:outline-none focus:ring-2 focus:ring-dc-pink-400"
+                    {...register('name')}
                 />
             </div>
 
@@ -21,8 +21,8 @@ export default function FormLogin() {
                 <InputForm
                     type="password"
                     id="password"
-                    name="password"
                     className="border-dc-pink-200 focus:outline-none focus:ring-2 focus:ring-dc-pink-400"
+                    {...register('password')}
                 />
             </div>
             <BtnForm
