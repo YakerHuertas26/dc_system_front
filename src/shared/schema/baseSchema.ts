@@ -2,13 +2,12 @@ import z from "zod";
 export const  baseSchema = z.object ({
     name: z
         .string()
-        .min(1,{error:'El compo es requerido'})
-        .length(45,{error:'El compo solo debe terner 45 carácteres'})
-        .trim(),
+        .trim()
+        .min(1,{error:'El compo es requerido'}),
     password: z
         .string()
-        .min(1,{error:'El compo es requerido'})
-        .trim(),
+        .trim()
+        .min(1,{error:'El compo es requerido'}),
 });
 
 // schema para el login
