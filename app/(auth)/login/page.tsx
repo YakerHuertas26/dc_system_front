@@ -1,4 +1,4 @@
-import FormLogin from "@/src/feature/auth/LoginForm";
+import FormLogin from "@/src/feature/auth/components/LoginForm";
 import Image from "next/image";
 
 export default function Login() {
