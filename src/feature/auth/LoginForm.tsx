@@ -1,4 +1,6 @@
+import BtnForm from "@/src/shared/forms/BtnForm";
 import Form from "@/src/shared/forms/Form";
+import InputForm from "@/src/shared/forms/InputForm";
 import LabelForm from "@/src/shared/forms/LabelForm";
 
 export default function FormLogin() {
@@ -6,27 +8,26 @@ export default function FormLogin() {
         <Form>
             <div className="mb-6">
                 <LabelForm htmlFor="name"> Usuario: </LabelForm>
-                <input
+                <InputForm
                     type="text"
                     id="name"
                     name="name"
-                    className="w-full border border-dc-pink-200 rounded-md p-2 mt-2 focus:outline-none focus:ring-2 focus:ring-dc-pink-400"
+                    className=" border-dc-pink-200 focus:outline-none focus:ring-2 focus:ring-dc-pink-400"
                 />
             </div>
 
             <div className="mb-6">
                 <LabelForm htmlFor="password"> Contraseña: </LabelForm>
-                <input
+                <InputForm
                     type="password"
                     id="password"
                     name="password"
-                    className="w-full border border-dc-pink-200 rounded-md p-2 mt-2 focus:outline-none focus:ring-2 focus:ring-dc-pink-400"
+                    className="border-dc-pink-200 focus:outline-none focus:ring-2 focus:ring-dc-pink-400"
                 />
             </div>
-            <input
-                type="submit"
+            <BtnForm
                 value="Iniciar Sesión"
-                className="w-full uppercase bg-dc-pink-400 text-white font-bold py-2 rounded-md hover:bg-pink-400 transition-colors cursor-pointer"
+                className=" bg-dc-pink-400  hover:bg-pink-400 transition-colors cursor-pointer"
             />
         </Form>
     );
