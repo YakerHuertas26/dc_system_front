@@ -1,15 +1,11 @@
 import Form from "@/src/shared/forms/Form";
+import LabelForm from "@/src/shared/forms/LabelForm";
 
 export default function FormLogin() {
     return (
         <Form>
             <div className="mb-6">
-                <label
-                    htmlFor="name"
-                    className="block uppercase font-bold"
-                >
-                    Usuario:
-                </label>
+                <LabelForm htmlFor="name"> Usuario: </LabelForm>
                 <input
                     type="text"
                     id="name"
@@ -19,12 +15,7 @@ export default function FormLogin() {
             </div>
 
             <div className="mb-6">
-                <label
-                    htmlFor="password"
-                    className="block uppercase font-bold"
-                >
-                    Contraseña:
-                </label>
+                <LabelForm htmlFor="password"> Contraseña: </LabelForm>
                 <input
                     type="password"
                     id="password"
