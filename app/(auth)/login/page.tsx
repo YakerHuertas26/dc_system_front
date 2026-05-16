@@ -1,3 +1,4 @@
+import FormLogin from "@/src/feature/auth/LoginForm";
 import Image from "next/image";
 
 export default function Login() {
@@ -15,6 +16,13 @@ export default function Login() {
                 />
                 </h1>
             </header>
+
+            <main>
+                <div className="rounded-lg shadow-lg bg-gray-50">
+                    <p className="text-center font-semibold text-indigo-800">Iniciar sesión </p>
+                    <FormLogin/>
+                </div>
+            </main>
         </div>
     );
 }
