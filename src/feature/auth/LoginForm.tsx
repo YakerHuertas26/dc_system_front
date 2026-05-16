@@ -2,11 +2,11 @@ import Form from "@/src/shared/forms/Form";
 
 export default function FormLogin() {
     return (
-        <Form >
-            <div className="px-2 mx-auto mb-6">
+        <Form>
+            <div className="mb-6">
                 <label
                     htmlFor="name"
-                    className="uppercase font-bold"
+                    className="block uppercase font-bold"
                 >
                     Usuario:
                 </label>
@@ -14,14 +14,14 @@ export default function FormLogin() {
                     type="text"
                     id="name"
                     name="name"
-                    className="block border border-dc-pink-200 rounded-md p-2 mt-2 focus:outline-none focus:ring-2 focus:ring-dc-pink-400"
+                    className="w-full border border-dc-pink-200 rounded-md p-2 mt-2 focus:outline-none focus:ring-2 focus:ring-dc-pink-400"
                 />
             </div>
 
-            <div className="px-2 mx-auto mb-6">
+            <div className="mb-6">
                 <label
                     htmlFor="password"
-                    className="uppercase font-bold "
+                    className="block uppercase font-bold"
                 >
                     Contraseña:
                 </label>
@@ -29,7 +29,7 @@ export default function FormLogin() {
                     type="password"
                     id="password"
                     name="password"
-                    className="block border border-dc-pink-200 rounded-md p-2 mt-2 focus:outline-none focus:ring-2 focus:ring-dc-pink-400"
+                    className="w-full border border-dc-pink-200 rounded-md p-2 mt-2 focus:outline-none focus:ring-2 focus:ring-dc-pink-400"
                 />
             </div>
             <input
