@@ -2,6 +2,10 @@ export interface authInputs {
     name: string,
     password: string
 };
+export type RoleName =
+    | 'Admin'
+    | 'Supervisor'
+    | 'Vendedor'
 
 export interface authUser {
     userId: number,
@@ -10,7 +14,7 @@ export interface authUser {
     state: number,
     role: {
         roleId: number,
-        name: string
+        name: RoleName
     },
     roleId: number
 }
@@ -23,7 +27,7 @@ export interface authResponse {
 export interface jwtPayload {
     sub: number
     name: string
-    roleName: string  // "Admin", "Manager", "User" → según tu RolesGuard
+    roleName: RoleName
     roleId: number
     exp: number
     iat: number
