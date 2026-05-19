@@ -1,20 +1,61 @@
 'use client'
 import { useForm } from "react-hook-form";
-import {BtnForm, InputForm, LabelForm, Form} from "@/src/shared/components/forms";
+import { BtnForm, InputForm, LabelForm, Form } from "@/src/shared/components/forms";
 import { authInput, authSchema } from "@/src/shared/schema/baseSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import ErrorForm from "@/src/shared/components/forms/ErrorForn";
+import { authServices } from "@/src/services/authServices";
+import { useAuthStore } from "@/src/store/authStore";
+import { RoleName } from "../types/auth.types";
+import axios from "axios";
+import { useRouter } from "next/navigation";
 
 export default function FormLogin() {
-    const {register, handleSubmit, formState: { errors }  } = useForm({
+    const { register, handleSubmit, reset, formState: { errors }, setError } = useForm({
         resolver: zodResolver(authSchema),
         mode: 'all'
     })
+    const router = useRouter();
+    const setAuth = useAuthStore((state) => state.setAuth);
 
-    const onsubmit = (data:authInput) => {
-        console.log(data);
-        
+    const onsubmit = async (data: authInput) => {
+        try {
+            // authService llama a /api/auth/login (Next.js)
+            const { userAutorised } = await authServices.login(data);
+
+            // token ya está en cookie httpOnly — invisible aquí
+            // Guarda usuario en Zustand
+            setAuth(userAutorised)
+            const roleName = userAutorised?.role?.name
+
+            const rutas: Record<RoleName, string> = {
+                Admin: '/admin/dashboard',
+                Supervisor: '/supervisor/dashboard',
+                Vendedor: '/vendedor/dashboard',
+            }
+
+            router.push(rutas[userAutorised.role.name]||'/login')
+
+        } catch (err) {
+            if (axios.isAxiosError(err)) {
+                const msg = err.response?.data?.message ?? 'Error'
+                
+                if (msg.includes('registrado')) {
+                    setError('name', { message: msg })
+                    
+                }
+                else if (msg.includes('Contraseña')) {
+                    setError('password', { message: msg })
+                }
+                else {
+                    setError('root', { message: msg })
+                    console.log(msg);
+                    
+                }
+            }
+        }
     }
+
     return (
         <Form onSubmit={handleSubmit(onsubmit)}>
             <div className="mb-6">
