@@ -9,6 +9,7 @@ import { useAuthStore } from "@/src/store/authStore";
 import { RoleName } from "../types/auth.types";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { toast } from 'sonner'
 
 export default function FormLogin() {
     const { register, handleSubmit, reset, formState: { errors }, setError } = useForm({
@@ -42,15 +43,15 @@ export default function FormLogin() {
                 
                 if (msg.includes('registrado')) {
                     setError('name', { message: msg })
-                    
+                    toast.error(msg);
                 }
                 else if (msg.includes('Contraseña')) {
                     setError('password', { message: msg })
+                    toast.error(msg);
                 }
                 else {
                     setError('root', { message: msg })
-                    console.log(msg);
-                    
+                    toast.error(msg);
                 }
             }
         }
