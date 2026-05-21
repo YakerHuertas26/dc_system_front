@@ -12,7 +12,7 @@ import { useRouter } from "next/navigation";
 import { toast } from 'sonner'
 
 export default function FormLogin() {
-    const { register, handleSubmit, reset, formState: { errors }, setError } = useForm({
+    const { register, handleSubmit, formState: { errors }, setError } = useForm({
         resolver: zodResolver(authSchema),
         mode: 'all'
     })
@@ -27,7 +27,6 @@ export default function FormLogin() {
             // token ya está en cookie httpOnly — invisible aquí
             // Guarda usuario en Zustand
             setAuth(userAutorised)
-            const roleName = userAutorised?.role?.name
 
             const rutas: Record<RoleName, string> = {
                 Admin: '/admin/dashboard',
