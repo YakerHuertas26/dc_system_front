@@ -16,7 +16,7 @@ const ROLE_ROUTES: Record<RoleName, string[]> = {
     Vendedor: ['/vendedor/dashboard'],
 }
 
-export async function middleware( request: NextRequest) {
+export async function proxy( request: NextRequest) {
     // Obtenemos la ruta a la que se intenta acceder
     const { pathname } = request.nextUrl
 

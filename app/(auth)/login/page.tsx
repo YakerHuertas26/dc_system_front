@@ -9,11 +9,12 @@ export default function Login() {
                     DC CASA DE NOVEDADES
                 </h1>
                 <Image
-                    className="mx-auto mb-2"
+                    className="mx-auto mb-2 h-40 w-auto"
                     src="/logo.jpg"
                     alt="logo tienda"
                     width={150}
                     height={70}
+                    loading="eager"
                 />
             </header>
 
