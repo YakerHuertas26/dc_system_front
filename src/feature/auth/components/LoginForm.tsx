@@ -9,9 +9,10 @@ import { useAuthStore } from "@/src/store/authStore";
 import { RoleName } from "../types/auth.types";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { toast } from 'sonner'
 
 export default function FormLogin() {
-    const { register, handleSubmit, reset, formState: { errors }, setError } = useForm({
+    const { register, handleSubmit, formState: { errors }, setError } = useForm({
         resolver: zodResolver(authSchema),
         mode: 'all'
     })
@@ -26,7 +27,6 @@ export default function FormLogin() {
             // token ya está en cookie httpOnly — invisible aquí
             // Guarda usuario en Zustand
             setAuth(userAutorised)
-            const roleName = userAutorised?.role?.name
 
             const rutas: Record<RoleName, string> = {
                 Admin: '/admin/dashboard',
@@ -42,15 +42,15 @@ export default function FormLogin() {
                 
                 if (msg.includes('registrado')) {
                     setError('name', { message: msg })
-                    
+                    toast.error(msg);
                 }
                 else if (msg.includes('Contraseña')) {
                     setError('password', { message: msg })
+                    toast.error(msg);
                 }
                 else {
                     setError('root', { message: msg })
-                    console.log(msg);
-                    
+                    toast.error(msg);
                 }
             }
         }
