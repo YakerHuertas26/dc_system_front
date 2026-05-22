@@ -19,11 +19,10 @@ export default function FormLogin() {
     const router = useRouter();
     const setAuth = useAuthStore((state) => state.setAuth);
 
-    const onsubmit = async (data: authInput) => {
+    const onsubmit = async (data: authInput) => {        
         try {
             // authService llama a /api/auth/login (Next.js)
             const { userAutorised } = await authServices.login(data);
-
             // token ya está en cookie httpOnly — invisible aquí
             // Guarda usuario en Zustand
             setAuth(userAutorised)
@@ -34,8 +33,7 @@ export default function FormLogin() {
                 Vendedor: '/vendedor/dashboard',
             }
 
-            router.push(rutas[userAutorised.role.name]||'/login')
-
+            router.push(rutas[userAutorised.role.name])
         } catch (err) {
             if (axios.isAxiosError(err)) {
                 const msg = err.response?.data?.message ?? 'Error'

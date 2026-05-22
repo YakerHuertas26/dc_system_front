@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { jwtVerify } from 'jose'
-import {jwtPayload,RoleName} from '@/src/feature/auth/types/auth.types'
+import { jwtPayload, RoleName } from '@/src/feature/auth/types/auth.types'
 
 const jwtSecret = process.env.JWT_SECRET
 
@@ -11,12 +11,12 @@ if (!jwtSecret) {
 const SECRET = new TextEncoder().encode(jwtSecret)
 
 const ROLE_ROUTES: Record<RoleName, string[]> = {
-    Admin: ['/admin/dashboard'],
+    Admin: ['/admin/dashboard','/admin/dashboard/product'],
     Supervisor: ['/supervisor/dashboard'],
     Vendedor: ['/vendedor/dashboard'],
 }
 
-export async function proxy( request: NextRequest) {
+export async function proxy(request: NextRequest) {
     // Obtenemos la ruta a la que se intenta acceder
     const { pathname } = request.nextUrl
 
@@ -25,17 +25,15 @@ export async function proxy( request: NextRequest) {
 
     // ** 2 casos de verificación de token: LOGIN y RUTAS PROTEGIDAS **
 
-// ==LOGIN: si es la ruta de login, solo la mostramos a usuarios NO autenticados
+    // ==LOGIN: si es la ruta de login, solo la mostramos a usuarios NO autenticados
     if (pathname.startsWith('/login')) {
         // cuando no hay token → mostrar login
-        if (!token) {
-            return NextResponse.next()
-        }
+        if (!token) return NextResponse.next()
         // Cundo ya hay un token -> verifica y obtengo el payload con el rol y direcciono
         try {
-            const { payload } = await jwtVerify<jwtPayload>(token,SECRET)
+            const { payload } = await jwtVerify<jwtPayload>(token, SECRET)
             const roleName = payload.roleName
-            const redirectTo =ROLE_ROUTES[roleName][0]
+            const redirectTo = ROLE_ROUTES[roleName][0]
 
             // ya autenticado redirreciona al dashboard
             return NextResponse.redirect(new URL(redirectTo, request.url))
@@ -46,16 +44,15 @@ export async function proxy( request: NextRequest) {
         }
     }
 
-// ===RUTAS PROTEGIDAS
+    // ===RUTAS PROTEGIDAS
 
     // sin token → lo devuelve al login
-    if (!token) {
-        return NextResponse.redirect(new URL('/login', request.url))
-    }
+    if (!token) return NextResponse.redirect(new URL('/login', request.url))
 
     // Con token → verifica si es válido y si el rol tiene acceso a la ruta
     try {
-        const { payload } =await jwtVerify<jwtPayload>(token,SECRET)
+        const { payload } = await jwtVerify<jwtPayload>(token, SECRET)
+    
         // obtengo las ruta permitidas para el rol del usuario
         const allowed = ROLE_ROUTES[payload.roleName] ?? []
 
@@ -85,6 +82,7 @@ export async function proxy( request: NextRequest) {
 
 export const config = {
     matcher: [
-        '/((?!_next/static|_next/image|favicon.ico|api/).*)',
+    // Exclude API routes, static files, image optimizations, and .png files
+    '/((?!api|_next/static|_next/image|favicon.ico|.*\\.png$).*)',
     ],
 }
