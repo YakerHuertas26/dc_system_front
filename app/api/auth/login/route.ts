@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
         })
 
         const data = await res.json();
-
+        
         // 2. Si NestJS devuelve error → lo propaga al formulario
         if (!res.ok) return NextResponse.json(data, { status: res.status });
 
