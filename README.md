@@ -1,36 +1,102 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DC_System — Frontend
 
-## Getting Started
+Interfaz web del sistema de gestión comercial DC_System. Construida con Next.js y Tailwind CSS, consume la API REST del backend para gestionar ventas, productos, inventario y usuarios.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🛠 Stack tecnológico
+
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
+![Axios](https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white)
+
+---
+
+## ✨ Funcionalidades
+
+- 🔐 **Autenticación** — login con JWT, rutas protegidas por rol
+- 📦 **Gestión de productos** — listado, creación, edición y eliminación
+- 🏪 **Registro de ventas** — formulario de ventas con detalle por producto
+- 📊 **Control de inventario** — visualización de stock actualizado
+- 👥 **Administración de usuarios** — gestión de cuentas y roles (vista admin)
+- 📱 **Diseño responsive** — interfaz adaptada a móvil, tablet y desktop
+
+---
+
+## 📁 Estructura del proyecto
+
+```
+app/
+  ├── (auth)/             # Páginas de login y registro
+  ├── dashboard/          # Panel principal
+  ├── api/                # Capa intermedia, llamada al back (Nest.js)
+src/
+  ├── components/         # Componentes reutilizables
+  ├── lib/                # Configuración de Axios e instancias
+  └── types/              # Tipos e interfaces TypeScript
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 Instalación y uso local
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Requisitos previos
+- Node.js 18+
+- Backend de DC_System corriendo en local ([ver instrucciones](https://github.com/YakerHuertas26))
 
-## Learn More
+### 1. Clonar el repositorio
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+git clone https://github.com/YakerHuertas26/dc-system-frontend.git
+cd dc-system-frontend
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 2. Instalar dependencias
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+pnpm install
+```
 
-## Deploy on Vercel
+### 3. Configurar variables de entorno
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Crea un archivo `.env.local` en la raíz del proyecto:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```env
+NEXT_PUBLIC_API_URL=http://localhost:3000
+```
+
+### 4. Correr el proyecto
+
+```bash
+# Modo desarrollo
+pnpm dev
+
+```
+
+La app estará disponible en `---`
+
+---
+
+## 📸 Capturas de pantalla
+
+> 🚧 Próximamente — el proyecto está en desarrollo activo.
+### Login
+![Login]
+<img width="1065" height="611" alt="Captura de pantalla 2026-05-24 113025" src="https://github.com/user-attachments/assets/e29202e6-61c5-46c5-acca-3d934b4608f1" />
+
+---
+
+## 🔗 Repositorio backend
+
+👉 [dc-system-backend]([https://github.com/YakerHuertas26](https://github.com/YakerHuertas26/dc_system_back/tree/feature_1.0))
+
+---
+
+## 👤 Autor
+
+**Yaker Mayanga Huertas**
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/yaker-huertas)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)](https://github.com/YakerHuertas26)
+
