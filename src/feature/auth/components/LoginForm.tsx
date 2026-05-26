@@ -5,7 +5,7 @@ import { authInput, authSchema } from "@/src/shared/schema/baseSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import ErrorForm from "@/src/shared/components/forms/ErrorForn";
 import { authServices } from "@/src/services/authServices";
-import { useAuthStore } from "@/src/store/authStore";
+import { userAuthStore } from "@/src/store/authStore";
 import { RoleName } from "../types/auth.types";
 import axios from "axios";
 import { useRouter } from "next/navigation";
@@ -17,7 +17,7 @@ export default function FormLogin() {
         mode: 'all'
     })
     const router = useRouter();
-    const setAuth = useAuthStore((state) => state.setAuth);
+    const setAuth = userAuthStore((state) => state.setAuth);
 
     const onsubmit = async (data: authInput) => {        
         try {
