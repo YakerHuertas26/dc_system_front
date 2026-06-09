@@ -1,5 +1,6 @@
 import FormLogin from "@/src/feature/auth/components/LoginForm";
 import Image from "next/image";
+import logo from '@/public/logo.jpg';
 
 export default function Login() {
     return (
@@ -10,7 +11,7 @@ export default function Login() {
                 </h1>
                 <Image
                     className="mx-auto mb-2 h-40 w-auto"
-                    src="/logo.jpg"
+                    src={logo}
                     alt="logo tienda"
                     width={150}
                     height={70}

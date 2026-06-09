@@ -1,15 +1,15 @@
 'use client'
 import { useForm } from "react-hook-form";
 import { BtnForm, InputForm, LabelForm, Form } from "@/src/shared/components/forms";
-import { authInput, authSchema } from "@/src/shared/schema/baseSchema";
+import { authInput, authSchema } from "@/src/feature/auth/schema/login.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import ErrorForm from "@/src/shared/components/forms/ErrorForn";
-import { authServices } from "@/src/services/authServices";
-import { useAuthStore } from "@/src/store/authStore";
-import { RoleName } from "../types/auth.types";
+import { authServices } from "@/src/feature/auth/services/auth.services";
+import { userAuthStore } from "@/src/store/authStore";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { toast } from 'sonner'
+import { RoleName } from "@src/feature/auth/types/auth.types";
 
 export default function FormLogin() {
     const { register, handleSubmit, formState: { errors }, setError } = useForm({
@@ -17,13 +17,15 @@ export default function FormLogin() {
         mode: 'all'
     })
     const router = useRouter();
-    const setAuth = useAuthStore((state) => state.setAuth);
-
-    const onsubmit = async (data: authInput) => {
+    const setAuth = userAuthStore((state) => state.setAuth);
+    const user = userAuthStore((state) => state.user);
+    console.log(user);
+    
+    
+    const onsubmit = async (data: authInput) => {        
         try {
             // authService llama a /api/auth/login (Next.js)
             const { userAutorised } = await authServices.login(data);
-
             // token ya está en cookie httpOnly — invisible aquí
             // Guarda usuario en Zustand
             setAuth(userAutorised)
@@ -34,8 +36,7 @@ export default function FormLogin() {
                 Vendedor: '/vendedor/dashboard',
             }
 
-            router.push(rutas[userAutorised.role.name]||'/login')
-
+            router.push(rutas[userAutorised.role.name])
         } catch (err) {
             if (axios.isAxiosError(err)) {
                 const msg = err.response?.data?.message ?? 'Error'
@@ -81,7 +82,7 @@ export default function FormLogin() {
             </div>
             <BtnForm
                 value="Iniciar Sesión"
-                className=" bg-dc-pink-400  hover:bg-pink-400 transition-colors cursor-pointer"
+                className=" bg-pink-400  hover:bg-pink-500 transition-colors cursor-pointer"
             />
         </Form>
     );
