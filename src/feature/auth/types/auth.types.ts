@@ -1,3 +1,5 @@
+/* AUTH TYPES*/
+
 export interface authInputs {
     name: string,
     password: string
@@ -32,4 +34,3 @@ export interface jwtPayload {
     exp: number
     iat: number
 }
-

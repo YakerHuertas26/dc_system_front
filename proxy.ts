@@ -28,7 +28,7 @@ export async function proxy(request: NextRequest) {
     // ==LOGIN: si es la ruta de login, solo la mostramos a usuarios NO autenticados
     if (pathname.startsWith('/login')) {
         // cuando no hay token → mostrar login
-        if (!token) return NextResponse.next()
+        if (!token) return NextResponse.next()  
         // Cundo ya hay un token -> verifica y obtengo el payload con el rol y direcciono
         try {
             const { payload } = await jwtVerify<jwtPayload>(token, SECRET)

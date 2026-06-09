@@ -1,5 +1,6 @@
 import {InputHTMLAttributes} from 'react';
-import { cn } from '../../lib/utils';
+import { cn } from '@src/shared/utils/cn.utils';
+
 
 type Props = InputHTMLAttributes<HTMLInputElement>;
 export default function BtnForm(props: Props) {
