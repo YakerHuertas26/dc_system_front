@@ -5,12 +5,11 @@ import { CircleUserRound, Menu,ChevronDown } from 'lucide-react';
 
 export default function Header() {
     const user = userAuthStore((state) => state.user)
-    console.log(user);
     
     return (
         <header className="flex items-center justify-between h-14 px-4 bg-dc-pink-200 z-30 shrink-0">
             <div className="flex items-center gap-3">
-                <button className="inline-flex items-center justify-center border rounded-lg w-9 h-9 hover:bg-gray-300 cursor-pointer transition-colors lg:hidden">
+                <button className="inline-flex items-center justify-center rounded-lg w-9 h-9 hover:bg-gray-300 cursor-pointer transition-colors lg:hidden">
                     <Menu />
                 </button>
                 <div className="hidden lg:flex items-center gap-3 justify-center">

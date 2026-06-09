@@ -6,7 +6,7 @@ export async function POST(req: NextRequest) {
 
         // 1. Llama a NestJS de servidor a servidor
         //    Usa API_URL (privada, sin NEXT_PUBLIC_)
-        const res = await fetch(`${process.env.API_URL}/auth`, {
+        const res = await fetch(`${process.env.API_URL}/v1/auth`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(body),
