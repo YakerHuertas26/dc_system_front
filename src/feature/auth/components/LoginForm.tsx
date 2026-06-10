@@ -5,7 +5,7 @@ import { authInput, authSchema } from "@/src/feature/auth/schema/login.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import ErrorForm from "@/src/shared/components/forms/ErrorForn";
 import { authServices } from "@/src/feature/auth/services/auth.services";
-import { userAuthStore } from "@/src/store/authStore";
+import { userAuthStore } from "@/src/store/auth.store";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { toast } from 'sonner'

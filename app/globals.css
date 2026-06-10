@@ -7,11 +7,13 @@
   --font-outfit: var(--font-outfit);
   --color-dc-sky-blue-200: #f0f6f9;
   --color-dc-sky-blue-400: #9cb9c2;
+  --color-dc-sky-blue-500: #7ba9b5;
+  --color-dc-sky-blue-700: #244056;
   --color-dc-sky-blue-800: #2a485f;
   --color-dc-pink-200: #ffcaff;
   --color-dc-pink-400: #e8b7ca;
-  --color-dc-tower-gray-500:   #7ba9b5;
-  --color-dc-chathams-blue-700: #244056
+  --color-dc-sidebar:#E7F0F7;
+  --color-dc-item-select:#F8EB90;
 }
 
 /*@media (prefers-color-scheme: dark) {
