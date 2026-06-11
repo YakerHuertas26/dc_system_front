@@ -4,10 +4,22 @@ import { sidebarItemsConfig } from "@src/feature/dashboard/constants/sidebar.con
 import ItemSidebar from "./ItemSidebar";
 import { sidebarMenuStore } from "@/src/store/dashboard.store";
 import { cn } from "@/src/shared/utils/cn.utils";
+import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 export default function Sidebar() {
     const user = userAuthStore((state) => state.user);
+
+    // estodos del sidebar
     const sidebar = sidebarMenuStore((state) => state.sidebarMenu);
+    const openSidebar = sidebarMenuStore((state) => state.openSidebarMenu);
+    const closeSidebar = sidebarMenuStore((state) => state.closeSidebarMenu);
+    
+    useEffect(()=>{
+        console.log('ya se monto ');
+        
+    },[])
+
     if (!user) return null 
     const sidebarItems = sidebarItemsConfig.filter(item => item.rol.includes(user.role.name));
 

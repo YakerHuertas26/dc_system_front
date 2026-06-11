@@ -19,8 +19,6 @@ export default function FormLogin() {
     const router = useRouter();
     const setAuth = userAuthStore((state) => state.setAuth);
     const user = userAuthStore((state) => state.user);
-    console.log(user);
-    
     
     const onsubmit = async (data: authInput) => {        
         try {
@@ -30,13 +28,7 @@ export default function FormLogin() {
             // Guarda usuario en Zustand
             setAuth(userAutorised)
 
-            const rutas: Record<RoleName, string> = {
-                Admin: '/admin/dashboard',
-                Supervisor: '/supervisor/dashboard',
-                Vendedor: '/vendedor/dashboard',
-            }
-
-            router.push(rutas[userAutorised.role.name])
+            router.push("/dashboard")
         } catch (err) {
             if (axios.isAxiosError(err)) {
                 const msg = err.response?.data?.message ?? 'Error'
