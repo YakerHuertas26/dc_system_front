@@ -5,16 +5,10 @@ import { jwtPayload, RoleName } from '@/src/feature/auth/types/auth.types'
 const jwtSecret = process.env.JWT_SECRET
 
 if (!jwtSecret) {
-    throw new Error('JWT_SECRET is not defined')
+    throw new Error('SECRET no definido')
 }
 
 const SECRET = new TextEncoder().encode(jwtSecret)
-
-const ROLE_ROUTES: Record<RoleName, string[]> = {
-    Admin: ['/admin/dashboard','/admin/dashboard/product'],
-    Supervisor: ['/supervisor/dashboard'],
-    Vendedor: ['/vendedor/dashboard'],
-}
 
 export async function proxy(request: NextRequest) {
     // Obtenemos la ruta a la que se intenta acceder
@@ -29,11 +23,11 @@ export async function proxy(request: NextRequest) {
     if (pathname.startsWith('/login')) {
         // cuando no hay token → mostrar login
         if (!token) return NextResponse.next()  
-        // Cundo ya hay un token -> verifica y obtengo el payload con el rol y direcciono
+        // Cundo ya hay un token 
         try {
-            const { payload } = await jwtVerify<jwtPayload>(token, SECRET)
-            const roleName = payload.roleName
-            const redirectTo = ROLE_ROUTES[roleName][0]
+            // verifico con jose y si no hay manda una exepción 
+            await jwtVerify(token, SECRET)
+            const redirectTo = "/dashboard"
 
             // ya autenticado redirreciona al dashboard
             return NextResponse.redirect(new URL(redirectTo, request.url))
@@ -51,22 +45,7 @@ export async function proxy(request: NextRequest) {
 
     // Con token → verifica si es válido y si el rol tiene acceso a la ruta
     try {
-        const { payload } = await jwtVerify<jwtPayload>(token, SECRET)
-    
-        // obtengo las ruta permitidas para el rol del usuario
-        const allowed = ROLE_ROUTES[payload.roleName] ?? []
-
-        const ok = allowed.some((route) =>
-            pathname.startsWith(route)
-        )
-
-        // rol sin acceso
-        if (!ok) {
-            return NextResponse.redirect(
-                new URL(allowed[0] ?? '/login', request.url)
-            )
-        }
-
+        await jwtVerify<jwtPayload>(token, SECRET)
         return NextResponse.next()
 
     } catch {
