@@ -14,6 +14,8 @@
   --color-dc-pink-400: #e8b7ca;
   --color-dc-sidebar:#E7F0F7;
   --color-dc-item-select:#F8EB90;
+  --color-dc-item-btn-add: #01E7FF;
+  --color-dc-item-btn-add-300: #45d3ee;
 }
 
 /*@media (prefers-color-scheme: dark) {
