@@ -20,7 +20,7 @@ export default function Header() {
     const openUserMenu = userMenuStore((state) => state.openUserMenu);
     const closeUserMenu = userMenuStore((state) => state.closeUserMenu);
     
-    // useEffect para el menu de usuario
+    // useEffect para ererar el menu de usuario
     useEffect(()=>{
         if (!menuUser) return
         function handleClick(e: MouseEvent){
@@ -31,8 +31,9 @@ export default function Header() {
         }
         document.addEventListener('mousedown', handleClick);
         return () => document.removeEventListener('mousedown', handleClick);
-    }, [menuUser])
+    }, [menuUser]);
 
+    // abrir y cerrar el siber desde el btn de menu
     const stateButtonSidebar = (state: boolean): void => {
         state? closeSidebar(): openSidebar();
     }

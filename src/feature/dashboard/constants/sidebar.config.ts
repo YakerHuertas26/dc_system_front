@@ -5,43 +5,43 @@ import { sidebarItem } from "@/src/feature/dashboard/types/dashboard.types";
 export const  sidebarItemsConfig : sidebarItem[] = [
     {
         label: 'Home',
-        url: 'dashboard/',
+        url: '/dashboard',
         icon: House,
         rol: ['Admin']
     },
     {
         label: 'Users',
-        url: 'dashboard/users',
+        url: '/dashboard/users',
         icon: User,
         rol: ['Admin']
     },
     {
         label: 'Proveedores',
-        url: 'dashboard/proveedores',
+        url: '/dashboard/proveedores',
         icon: Truck,
         rol: ['Admin']
     },
     {
         label: 'Categories',
-        url: 'dashboard/categories',
+        url: '/dashboard/categorias',
         icon: Blocks,
         rol: ['Admin']
     },
     {
         label: 'Colores',
-        url: 'dashboard/colores',
+        url: '/dashboard/colores',
         icon: Palette,
         rol: ['Admin']
     },
     {
         label: 'Productos',
-        url: 'dashboard/productos',
+        url: '/dashboard/productos',
         icon: Apple,
         rol: ['Admin']
     },
     {
         label: 'Home2',
-        url: 'dashboard/home2',
+        url: '/dashboard/home2',
         icon: House,
         rol: ['Vendedor']
     },
