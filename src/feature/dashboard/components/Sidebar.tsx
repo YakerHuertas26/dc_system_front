@@ -45,7 +45,7 @@ export default function Sidebar() {
 
     return (
         <aside className={cn(
-            "hidden h-screen bg-dc-sidebar p-1 min-w-35 lg:block", 
+            "hidden h-screen bg-dc-sidebar p-1 min-w-35 lg:block absolute lg:relative z-50", 
             sidebar && "block"
         )}
         ref={sidebarMenuRef}
