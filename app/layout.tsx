@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import { Toaster } from 'sonner';
 import "./globals.css";
+import ReactQueryProvider from "@/src/providers/ReactQueryProvider";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -23,13 +24,16 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  
   return (
     <html
       lang="es"
       className={`${outfit.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        {children}
+          <ReactQueryProvider>
+              {children}
+          </ReactQueryProvider>
         <Toaster position="top-center" richColors expand={true}/>
       </body>
     </html>
