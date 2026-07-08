@@ -30,7 +30,7 @@ export default function RootLayout({
       lang="es"
       className={`${outfit.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col font-outfit">
           <ReactQueryProvider>
               {children}
           </ReactQueryProvider>

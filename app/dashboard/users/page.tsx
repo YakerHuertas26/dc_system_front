@@ -10,7 +10,6 @@ export default function Users() {
     if (isLoading) return <div>Cargando...</div>;
 
     if (isError) return <div>Error al cargar los usuarios</div>;
-    console.log(data);
     
     return (
         <div className="px-2 py-3">
@@ -19,8 +18,10 @@ export default function Users() {
             />
             <main>
                 <FilterModule/>
-                <div className="border border-red-600 flex gap-2 flex-col h-fit lg:hidden">
-                    <UserCard/>
+                <div className="flex gap-5 flex-col h-fit p-2 lg:hidden">
+                    <UserCard
+                        users={data.users}
+                    />
                 </div>
 
                 <div className="hidden lg:block">
