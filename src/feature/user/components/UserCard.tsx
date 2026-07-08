@@ -1,16 +1,24 @@
-import { user } from "@/src/data/users";
+
 import CardListModule from "@/src/shared/components/modules/CardListModule";
 import Image from "@/public/usuario.png";
-export default function UserCard() {
+import { authUser } from "../../auth/types/auth.types";
 
-    const userData = user;
-    
+interface UserCardProps {
+    users: authUser[];
+}
+
+export default function UserCard({ users }: UserCardProps) {
+ 
     return (
         <>
-            {userData.map((element,key)=>
+            {users.map((element,key)=>
                 <CardListModule
-                key={key}
-                imageSrc={Image}
+                    key={key}
+                    imageSrc={Image}
+                    name={element.name}
+                    email={element.email}
+                    roleName={element.role.name}
+                    state={element.state}
                 />
             )}
         </>     
