@@ -1,6 +1,6 @@
 'use client';
 
-import UserCard from "@/src/feature/user/components/UserCard";
+import ListUser from "@/src/feature/user/components/ListUser";
 import { useUsers } from "@/src/feature/user/hooks/users.hooks";
 import FilterModule from "@/src/shared/components/modules/FilterModule";
 import HeaderModule from "@/src/shared/components/modules/HeaderModule";
@@ -18,15 +18,7 @@ export default function Users() {
             />
             <main>
                 <FilterModule/>
-                <div className="flex gap-5 flex-col h-fit p-2 lg:hidden">
-                    <UserCard
-                        users={data.users}
-                    />
-                </div>
-
-                <div className="hidden lg:block">
-                    lista
-                </div>
+                <ListUser users={data.users}/>
             </main>
         </div>
     );
