@@ -18,10 +18,15 @@ export default function DesktopListUser({ users }: UserTableProps) {
 
             <tbody>
                 {users.map(user => (
-                    <div
-                        key={user.userId}
-                        // user={user}
-                    />
+                    <tr key={user.userId}>
+                        <td>{user.name}</td>
+                        <td>{user.role.name}</td>
+                        <td>{user.state}</td>
+                        <td>
+                            <button>Editar</button>
+                            <button>Borrar</button>
+                        </td>
+                    </tr>
                 ))}
             </tbody>
         </table>

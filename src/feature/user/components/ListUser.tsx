@@ -12,7 +12,7 @@ export default function ListUser({ users }: ListUserProps) {
     return (
         <>
         {/* Mobile */}
-            <div className="flex gap-5 flex-col h-fit p-2 md:hidden">
+            <div className="flex gap-5 flex-col h-fit py-2 md:hidden">
                 {users.map((element, key) =>
                     <MobileListUser
                         key={key}
