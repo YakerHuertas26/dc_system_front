@@ -4,6 +4,7 @@ import { Pencil, Trash2 } from "lucide-react";
 import { Avatar, AvatarFallback } from "@/src/shared/components/shadcn/components";
 import BtnEdit from "@/src/shared/components/modules/btnEdit";
 import StateElement from "@/src/shared/components/modules/StateElement";
+import BtnDelet from "@/src/shared/components/modules/BtnDelet";
 
 interface UserProps {
     imageSrc: StaticImageData;
@@ -41,9 +42,7 @@ export default function MobileListUser({ name, roleName, email, state }: UserPro
 
                 <div className="flex gap-2">
                     <BtnEdit onClick={handleEdit}/>
-                    <button className="bg-red-500 text-white p-2 rounded-lg hover:bg-red-600 cursor-pointer">
-                        <Trash2 size={18} />
-                    </button>
+                    <BtnDelet/>
                 </div>
             </div>
             
