@@ -7,7 +7,6 @@ import StateElement from "@/src/shared/components/modules/StateElement";
 import BtnDelet from "@/src/shared/components/modules/BtnDelet";
 
 interface UserProps {
-    imageSrc: StaticImageData;
     name: string;
     roleName: string;
     email: string;
@@ -17,7 +16,10 @@ interface UserProps {
 export default function MobileListUser({ name, roleName, email, state }: UserProps) {
     function handleEdit() {
         console.log('editar');
-        
+    }
+
+    function handleDelete() {
+        console.log('cambio el state');
     }
     return (
         <>
@@ -42,7 +44,7 @@ export default function MobileListUser({ name, roleName, email, state }: UserPro
 
                 <div className="flex gap-2">
                     <BtnEdit onClick={handleEdit}/>
-                    <BtnDelet/>
+                    <BtnDelet onClick={handleDelete}/>
                 </div>
             </div>
             

@@ -16,7 +16,6 @@ export default function ListUser({ users }: ListUserProps) {
                 {users.map((element, key) =>
                     <MobileListUser
                         key={key}
-                        imageSrc={Image}
                         name={element.name}
                         email={element.email}
                         roleName={element.role.name}

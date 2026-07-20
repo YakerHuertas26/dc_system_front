@@ -3,7 +3,7 @@ import { authInput } from '@src/feature/auth/schema/login.schema';
 import { authResponse } from '@src/feature/auth/types/auth.types';
 
 export const authServices = {
-    async login(payload: authInput): Promise<authResponse> {
+    async login(payload: authInput): Promise<authResponse> {  
         const { data } = await api.post<authResponse>('/api/auth/login', payload);
         return data;
     },
