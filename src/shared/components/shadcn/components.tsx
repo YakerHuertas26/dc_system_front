@@ -88,6 +88,7 @@ function TableBody({ className, ...props }: React.ComponentProps<"tbody">) {
         />
     )
 }
+
 function TableFooter({ className, ...props }: React.ComponentProps<"tfoot">) {
     return (
         <tfoot
@@ -100,6 +101,7 @@ function TableFooter({ className, ...props }: React.ComponentProps<"tfoot">) {
         />
     )
 }
+
 function TableRow({ className, ...props }: React.ComponentProps<"tr">) {
     return (
         <tr
@@ -112,6 +114,7 @@ function TableRow({ className, ...props }: React.ComponentProps<"tr">) {
         />
     )
 }
+
 function TableHead({ className, ...props }: React.ComponentProps<"th">) {
     return (
         <th
@@ -124,6 +127,7 @@ function TableHead({ className, ...props }: React.ComponentProps<"th">) {
         />
     )
 }
+
 function TableCell({ className, ...props }: React.ComponentProps<"td">) {
     return (
         <td
@@ -157,6 +161,12 @@ export {
     Spinner,
     Table,
     TableHeader,
+    TableBody,
+    TableFooter,
+    TableHead,
+    TableRow,
+    TableCell,
+    TableCaption,
 }
 
 
