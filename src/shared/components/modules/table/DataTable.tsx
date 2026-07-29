@@ -8,7 +8,7 @@ export default function DataTable<TData>({ data, columns }: DataTableProps<TData
     
     return (
         <Table >
-            <TableHeader className="border-none">
+            <TableHeader>
                 {table.getHeaderGroups().map((headerGroup)=>(
                     <TableRow key={headerGroup.id}>
                         {headerGroup.headers.map((header)=>(

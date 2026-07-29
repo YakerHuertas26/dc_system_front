@@ -5,6 +5,7 @@ import { Avatar, AvatarFallback } from "@/src/shared/components/shadcn/component
 import BtnEdit from "@/src/shared/components/modules/btnEdit";
 import StateElement from "@/src/shared/components/modules/StateElement";
 import BtnDelet from "@/src/shared/components/modules/BtnDelet";
+import PropertyElement from "@/src/shared/components/modules/PropertyElement";
 
 interface UserProps {
     name: string;
@@ -34,11 +35,7 @@ export default function MobileListUser({ name, roleName, email, state }: UserPro
                 </div>
 
                 <div className="flex flex-col text-center gap-1">
-                    <span className={cn(
-                        "font-semibold px-4 rounded-lg",
-                        roleName === "Admin" ? "text-blue-500 bg-emerald-100" : "text-green-500 bg-green-100")}>
-                        {roleName}
-                    </span>
+                    <PropertyElement roleName={roleName}/>
                     <StateElement state={state} />
                 </div>
 
