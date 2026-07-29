@@ -5,11 +5,11 @@ export const columnsUsers : ColumnDef<authUser>[] = [
     {
         accessorKey: "name",
         header: "Nombre",
-        cell: ({ row }) => {
-            return (
-                <span>{row.original.name}</span>
-            )
-        }
+        // cell: ({ row }) => {
+        //     return (
+        //         <span>{row.original.name}</span>
+        //     )
+        // }
     },
     {
         accessorKey: "email",

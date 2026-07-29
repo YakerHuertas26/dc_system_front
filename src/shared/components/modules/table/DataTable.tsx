@@ -1,17 +1,14 @@
 import {  flexRender, getCoreRowModel, useReactTable } from "@tanstack/react-table";
-import { Table, TableHead, TableHeader, TableRow } from "../../shadcn/components";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../../shadcn/components";
 import DataTableProps from "./table.types";
-
-
-
 
 export default function DataTable<TData>({ data, columns }: DataTableProps<TData>) {
 
     const table = useReactTable({ data, columns, getCoreRowModel: getCoreRowModel() });
-
+    
     return (
-        <Table>
-            <TableHeader>
+        <Table >
+            <TableHeader className="border-none">
                 {table.getHeaderGroups().map((headerGroup)=>(
                     <TableRow key={headerGroup.id}>
                         {headerGroup.headers.map((header)=>(
@@ -22,6 +19,22 @@ export default function DataTable<TData>({ data, columns }: DataTableProps<TData
                     </TableRow>
                 ))}
             </TableHeader>
+
+            <TableBody >
+                {table.getRowModel().rows.map((row)=>(
+                    <TableRow key={row.id}>
+                        {row.getVisibleCells().map((cell)=>(
+                            <TableCell key={cell.id} >
+                                {flexRender(
+                                    cell.column.columnDef.cell,
+                                    cell.getContext()
+                                )}
+                            </TableCell>
+                        ))}
+                    </TableRow>
+                ))}
+
+            </TableBody>
         </Table>
     );
 }
