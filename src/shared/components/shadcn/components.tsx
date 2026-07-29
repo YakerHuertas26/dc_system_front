@@ -1,9 +1,8 @@
 import * as React from "react"
 import { Avatar as AvatarPrimitive } from "@base-ui/react/avatar"
-import { Loader2Icon } from "lucide-react"
 import { LoaderIcon } from "lucide-react"
-import { cn } from "@/src/shared/utils/cn.utils"
 
+import { cn } from "@/src/shared/utils/cn.utils"
 
 function Avatar({
     className,
