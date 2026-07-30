@@ -1,7 +1,8 @@
-import Image from "@/public/usuario.png";
 import { authUser } from "../../auth/types/auth.types";
 import MobileListUser from "./MobileListUser";
 import DesktopListUser from "./DesktopListUser";
+import { getCoreRowModel, useReactTable } from "@tanstack/react-table";
+import { columnsUsers } from "./Columns";
 
 interface ListUserProps {
     users: authUser[];
@@ -9,24 +10,22 @@ interface ListUserProps {
 
 export default function ListUser({ users }: ListUserProps) {
 
+    const table = useReactTable({
+        data: users,
+        columns: columnsUsers,
+        getCoreRowModel: getCoreRowModel()
+    })
+
     return (
         <>
         {/* Mobile */}
-            <div className="flex gap-5 flex-col h-fit py-2 md:hidden">
-                {users.map((element, key) =>
-                    <MobileListUser
-                        key={key}
-                        name={element.name}
-                        email={element.email}
-                        roleName={element.role.name}
-                        state={element.state}
-                    />
-                )}
+            <div className="flex gap-5 flex-col h-fit text-sm py-2 md:hidden">
+                <MobileListUser table={table} />
             </div>
 
         {/* Desktop */}
         <div className="hidden md:block">
-            <DesktopListUser users = {users}/>
+            <DesktopListUser table = {table}/>
         </div>
         </>
     );

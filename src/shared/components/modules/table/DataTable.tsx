@@ -1,30 +1,38 @@
-import {  flexRender, getCoreRowModel, useReactTable } from "@tanstack/react-table";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../../shadcn/components";
-import DataTableProps from "./table.types";
+import {flexRender,Table,} from "@tanstack/react-table";
 
-export default function DataTable<TData>({ data, columns }: DataTableProps<TData>) {
+import {TableBody,TableCell,TableHead,TableHeader,TableRow,TableView,} from "../../shadcn/components";
 
-    const table = useReactTable({ data, columns, getCoreRowModel: getCoreRowModel() });
-    
+interface Props<TData> {
+    table: Table<TData>;
+}
+
+export default function DataTable<TData>({table}: Props<TData>) {
+
     return (
-        <Table >
+        <TableView>
             <TableHeader>
-                {table.getHeaderGroups().map((headerGroup)=>(
+                {table.getHeaderGroups().map((headerGroup) => (
                     <TableRow key={headerGroup.id}>
-                        {headerGroup.headers.map((header)=>(
-                            <TableHead key={header.id}>
-                                {flexRender(header.column.columnDef.header, header.getContext())}
+                        {headerGroup.headers.map((header) => (
+                            <TableHead
+                                key={header.id}
+                                className="text-center"
+                            >
+                                {flexRender(
+                                    header.column.columnDef.header,
+                                    header.getContext()
+                                )}
                             </TableHead>
                         ))}
                     </TableRow>
                 ))}
             </TableHeader>
 
-            <TableBody >
-                {table.getRowModel().rows.map((row)=>(
+            <TableBody>
+                {table.getRowModel().rows.map((row) => (
                     <TableRow key={row.id}>
-                        {row.getVisibleCells().map((cell)=>(
-                            <TableCell key={cell.id} >
+                        {row.getVisibleCells().map((cell) => (
+                            <TableCell key={cell.id}>
                                 {flexRender(
                                     cell.column.columnDef.cell,
                                     cell.getContext()
@@ -33,8 +41,7 @@ export default function DataTable<TData>({ data, columns }: DataTableProps<TData
                         ))}
                     </TableRow>
                 ))}
-
             </TableBody>
-        </Table>
+        </TableView>
     );
 }

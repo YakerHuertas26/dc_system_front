@@ -1,16 +1,14 @@
 import { authUser } from "../../auth/types/auth.types";
 import Datatable from "@src/shared/components/modules/table/DataTable";
-import { columnsUsers } from "./Columns";
+import { Table } from "@tanstack/react-table";
 
-interface UserTableProps {
-    users: authUser[];
+interface Props {
+    table: Table<authUser>
 }
 
-export default function DesktopListUser({ users }: UserTableProps) {
+
+export default function DesktopListUser({ table}: Props) {
     return (
-        <Datatable
-            data={users}
-            columns={columnsUsers}
-        />
+        <Datatable table = {table}/>
     );
 }
