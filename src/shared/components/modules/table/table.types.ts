@@ -7,15 +7,15 @@ export interface DataTableProps<TData> {
     mobileComponent: ComponentType<MobileComponentProps<TData>>;
 }
 
+export interface MobileTableProps<TData> {
+    table: Table<TData>;
+    mobileComponent: ComponentType<MobileComponentProps<TData>>;
+}
+
 export interface MobileComponentProps<TData> {
     data: TData;
 }
 
 export interface DesktopTableProps<TData> {
     table: Table<TData>;
-}
-
-export interface MobileTableProps<TData> {
-    table: Table<TData>;
-    mobileComponent: ComponentType<MobileComponentProps<TData>>;
 }

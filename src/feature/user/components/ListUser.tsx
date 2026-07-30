@@ -3,6 +3,7 @@ import MobileListUser from "./MobileListUser";
 import DesktopListUser from "./DesktopListUser";
 import { getCoreRowModel, useReactTable } from "@tanstack/react-table";
 import { columnsUsers } from "./Columns";
+import DataTable from "@/src/shared/components/modules/table/DataTable";
 
 interface ListUserProps {
     users: authUser[];
@@ -10,23 +11,18 @@ interface ListUserProps {
 
 export default function ListUser({ users }: ListUserProps) {
 
-    const table = useReactTable({
-        data: users,
-        columns: columnsUsers,
-        getCoreRowModel: getCoreRowModel()
-    })
-
     return (
         <>
         {/* Mobile */}
-            <div className="flex gap-5 flex-col h-fit text-sm py-2 md:hidden">
+            {/* <div className="flex gap-5 flex-col h-fit text-sm py-2 md:hidden">
                 <MobileListUser table={table} />
-            </div>
+            </div> */}
 
         {/* Desktop */}
-        <div className="hidden md:block">
+        {/* <div className="hidden md:block">
             <DesktopListUser table = {table}/>
-        </div>
+        </div> */}
+           
         </>
     );
 }

@@ -53,7 +53,7 @@ function Spinner({ className, ...props }: React.ComponentProps<"svg">) {
 }
 
 // TABLA
-function TableView({ className, ...props }: React.ComponentProps<"table">) {
+function Table({ className, ...props }: React.ComponentProps<"table">) {
     return (
         <div
             data-slot="table-container"
@@ -158,7 +158,7 @@ export {
     Avatar,
     AvatarFallback,
     Spinner,
-    TableView,
+    Table,
     TableHeader,
     TableBody,
     TableFooter,

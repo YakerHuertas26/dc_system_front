@@ -9,6 +9,6 @@ interface Props {
 
 export default function DesktopListUser({ table}: Props) {
     return (
-        <Datatable table = {table}/>
+        <div>...</div>
     );
 }
