@@ -3,7 +3,6 @@ import BtnEdit from "@/src/shared/components/modules/btnEdit";
 import StateElement from "@/src/shared/components/modules/StateElement";
 import BtnDelet from "@/src/shared/components/modules/BtnDelet";
 import PropertyElement from "@/src/shared/components/modules/PropertyElement";
-import { Table } from "@tanstack/react-table";
 import { authUser } from "../../auth/types/auth.types";
 import { MobileComponentProps } from "@/src/shared/components/modules/table/table.types";
 

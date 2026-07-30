@@ -4,11 +4,30 @@ import PropertyElement from "@/src/shared/components/modules/PropertyElement";
 import StateElement from "@/src/shared/components/modules/StateElement";
 import BtnEdit from "@/src/shared/components/modules/btnEdit";
 import BtnDelet from "@/src/shared/components/modules/BtnDelet";
+import { Avatar, AvatarFallback } from "@/src/shared/components/shadcn/components";
+
 
 export const columnsUsers: ColumnDef<authUser>[] = [
     {
         accessorKey: "name",
         header: "Nombre",
+        cell: ({ row }) => {
+            const user = row.original;
+            return (
+                <div className="flex items-center gap-4">
+                    <Avatar size="lg">
+                        <AvatarFallback className="bg-emerald-100 font-bold">
+                            {user.name.slice(0, 2)}
+                        </AvatarFallback>
+                    </Avatar>
+
+                    <span className="font-semibold text-center">
+                        {user.name}
+                    </span>
+
+                </div>
+            )
+        }
     },
     {
         accessorKey: "email",
@@ -42,8 +61,8 @@ export const columnsUsers: ColumnDef<authUser>[] = [
             const user = row.original;
             return (
                 <div className="flex justify-evenly">
-                    <BtnEdit/>
-                    <BtnDelet/>
+                    <BtnEdit />
+                    <BtnDelet />
                 </div>
             )
         }

@@ -3,7 +3,6 @@ import { DesktopTableProps } from "./table.types";
 import { flexRender } from "@tanstack/react-table";
 
 export default function DesktopTable<TData>({ table }: DesktopTableProps<TData>) {
-    console.log(table.getRowModel().rows);
     
     return (
         <Table>
