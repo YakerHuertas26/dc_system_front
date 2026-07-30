@@ -5,13 +5,11 @@ import BtnDelet from "@/src/shared/components/modules/BtnDelet";
 import PropertyElement from "@/src/shared/components/modules/PropertyElement";
 import { Table } from "@tanstack/react-table";
 import { authUser } from "../../auth/types/auth.types";
+import { MobileComponentProps } from "@/src/shared/components/modules/table/table.types";
 
-interface Props {
-    table: Table<authUser>;
-}
+export default function UserMobileListCard({ data }: MobileComponentProps<authUser>) {
 
-export default function MobileListUser({ table }: Props) {
-
+    const user = data;
     function handleEdit(user: authUser) {
         console.log(user);
     }
@@ -20,43 +18,35 @@ export default function MobileListUser({ table }: Props) {
         console.log(user);
     }
     return (
+        //  <div className="flex items-center justify-between gap-3 rounded-lg bg-white p-4 shadow-md"></div>
         <>
-            {table.getRowModel().rows.map((row) => {
-                const user = row.original;
-                return (
-                    <div
-                        key={row.id}
-                        className="rounded-lg bg-white shadow-md p-4 flex justify-between items-center"
-                    >
-                        <Avatar size="lg">
-                            <AvatarFallback className="bg-emerald-100 font-bold">
-                                {user.name.slice(0, 2)}
-                            </AvatarFallback>
-                        </Avatar>
+            <Avatar size="lg">
+                <AvatarFallback className="bg-emerald-100 font-bold">
+                    {user.name.slice(0, 2)}
+                </AvatarFallback>
+            </Avatar>
 
-                        <div className="flex flex-col">
-                            <span className="font-bold">
-                                {user.name}
-                            </span>
+            <div className="flex flex-col">
+                <span className="font-bold">
+                    {user.name}
+                </span>
 
-                            <span className="text-sm text-gray-500">
-                                {user.email}
-                            </span>
-                        </div>
+                <span className="text-sm text-gray-500">
+                    {user.email}
+                </span>
+            </div>
 
-                        <div className="flex flex-col gap-1">
-                            <PropertyElement roleName={user.role.name}/>
-                            <StateElement state={user.state}/>
-                        </div>
+            <div className="flex flex-col gap-1">
+                <PropertyElement roleName={user.role.name} />
+                <StateElement state={user.state} />
+            </div>
 
-                        <div className="flex gap-2">
-                            <BtnEdit onClick={() => handleEdit(user)} />
+            <div className="flex gap-2">
+                <BtnEdit onClick={() => handleEdit(user)} />
 
-                            <BtnDelet onClick={() => handleDelete(user)}/>
-                        </div>
-                    </div>
-                );
-            })}
+                <BtnDelet onClick={() => handleDelete(user)} />
+            </div>
+
         </>
     );
 }
