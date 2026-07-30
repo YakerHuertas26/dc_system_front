@@ -1,9 +1,13 @@
 import { cn } from "@src/shared/utils/cn.utils";
 
+interface stateElementProp {
+    state: number,
+    className?: string
+}
 
-export default function StateElement({state}: {state: number}) {
+export default function StateElement({state, className} : stateElementProp) {
     return (
-        <div className="flex items-center gap-2 justify-center">
+        <div className= {cn("flex items-center gap-2 justify-center", className)}>
             <span className={cn(
                 "h-2 w-2 rounded-full",
                 state === 1 ? "bg-green-500" : "bg-red-500"

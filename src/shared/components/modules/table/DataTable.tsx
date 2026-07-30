@@ -1,40 +1,31 @@
-import {  flexRender, getCoreRowModel, useReactTable } from "@tanstack/react-table";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../../shadcn/components";
-import DataTableProps from "./table.types";
+import {getCoreRowModel, useReactTable,} from "@tanstack/react-table";
+import { DataTableProps } from "./table.types";
+import DesktopTable from "./DesktopTable";
+import MobileList from "./MobileList";
 
-export default function DataTable<TData>({ data, columns }: DataTableProps<TData>) {
 
-    const table = useReactTable({ data, columns, getCoreRowModel: getCoreRowModel() });
+export default function DataTable<TData>({data, columns, mobileComponent}:DataTableProps<TData>) {
+    console.log(data);
     
+    const table = useReactTable({
+        data,
+        columns,
+        getCoreRowModel: getCoreRowModel()
+    })
     return (
-        <Table >
-            <TableHeader>
-                {table.getHeaderGroups().map((headerGroup)=>(
-                    <TableRow key={headerGroup.id}>
-                        {headerGroup.headers.map((header)=>(
-                            <TableHead key={header.id}>
-                                {flexRender(header.column.columnDef.header, header.getContext())}
-                            </TableHead>
-                        ))}
-                    </TableRow>
-                ))}
-            </TableHeader>
+        <>
+            {/* desktop */}
+            <div className="hidden md:block">
+                <DesktopTable table= {table}/>
+            </div>
 
-            <TableBody >
-                {table.getRowModel().rows.map((row)=>(
-                    <TableRow key={row.id}>
-                        {row.getVisibleCells().map((cell)=>(
-                            <TableCell key={cell.id} >
-                                {flexRender(
-                                    cell.column.columnDef.cell,
-                                    cell.getContext()
-                                )}
-                            </TableCell>
-                        ))}
-                    </TableRow>
-                ))}
-
-            </TableBody>
-        </Table>
+            {/*  mobile */}
+            <div className="md:hidden">
+                <MobileList 
+                    table= {table}
+                    mobileComponent= {mobileComponent}
+                />
+            </div>
+        </>
     );
 }
