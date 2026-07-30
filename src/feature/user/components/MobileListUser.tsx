@@ -18,8 +18,7 @@ export default function UserMobileListCard({ data }: MobileComponentProps<authUs
         console.log(user);
     }
     return (
-        //  <div className="flex items-center justify-between gap-3 rounded-lg bg-white p-4 shadow-md"></div>
-        <>
+        <div  className="text-sm flex md:gap-4 rounded-lg px-2  py-4 items-center justify-between bg-white shadow-md">
             <Avatar size="lg">
                 <AvatarFallback className="bg-emerald-100 font-bold">
                     {user.name.slice(0, 2)}
@@ -47,6 +46,6 @@ export default function UserMobileListCard({ data }: MobileComponentProps<authUs
                 <BtnDelet onClick={() => handleDelete(user)} />
             </div>
 
-        </>
+        </div>
     );
 }

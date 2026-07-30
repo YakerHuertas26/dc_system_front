@@ -2,17 +2,19 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { DesktopTableProps } from "./table.types";
 import { flexRender } from "@tanstack/react-table";
 
-export default function DesktopTable<TData>({table}:DesktopTableProps<TData>) {
+export default function DesktopTable<TData>({ table }: DesktopTableProps<TData>) {
+    console.log(table.getRowModel().rows);
+    
     return (
         <Table>
             <TableHeader>
-                {table.getHeaderGroups().map((headerGroup)=>(
-                    <TableRow key={headerGroup.id}>
-                        {headerGroup.headers.map((header)=>(
-                            <TableHead key={header.id}>
+                {table.getHeaderGroups().map((headerGroup) => (
+                    <TableRow key={headerGroup.id} >
+                        {headerGroup.headers.map((header) => (
+                            <TableHead key={header.id} className="text-center">
                                 {
-                                    header.isPlaceholder? null : 
-                                    flexRender(header.column.columnDef.header, header.getContext())
+                                    header.isPlaceholder ? null :
+                                        flexRender(header.column.columnDef.header, header.getContext())
                                 }
                             </TableHead>
                         ))}
@@ -22,22 +24,25 @@ export default function DesktopTable<TData>({table}:DesktopTableProps<TData>) {
 
             <TableBody>
                 {table.getRowModel().rows.length ? (
-                    table.getRowModel().rows.map((row)=>(
+                    table.getRowModel().rows.map((row) => (
                         <TableRow key={row.id}>
-                            {row.getLeftVisibleCells().map((cell)=>(
-                                <TableCell key={cell.id}>
+                            {row.getVisibleCells().map((cell) => (
+                                <TableCell key={cell.id} className="text-center">
                                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                                 </TableCell>
                             ))}
                         </TableRow>
                     ))
-                ): (
-                    <TableCell colSpan={table.getAllColumns().length} className="text-center mx-0">
-                        No hay registros
-                    </TableCell>
-                )
-                
-                }
+                ) : (
+                    <TableRow>
+                        <TableCell
+                            colSpan={table.getAllColumns().length}
+                            className="text-center"
+                        >
+                            No hay registros
+                        </TableCell>
+                    </TableRow>
+                )}
             </TableBody>
         </Table>
     );

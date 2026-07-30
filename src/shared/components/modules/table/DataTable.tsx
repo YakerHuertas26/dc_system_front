@@ -4,9 +4,9 @@ import DesktopTable from "./DesktopTable";
 import MobileList from "./MobileList";
 
 
-
 export default function DataTable<TData>({data, columns, mobileComponent}:DataTableProps<TData>) {
-
+    console.log(data);
+    
     const table = useReactTable({
         data,
         columns,

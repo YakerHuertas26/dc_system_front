@@ -22,7 +22,7 @@ export default function Sidebar() {
         closeSidebar()
     },[pathname]);
 
-     // useEffect para ererar el menu del sidebar
+     // useEffect para cerrar el menu del sidebar
     useEffect(()=>{
         if (!sidebar) return
         function handleClick(e: MouseEvent){
@@ -45,7 +45,7 @@ export default function Sidebar() {
 
     return (
         <aside className={cn(
-            "hidden h-screen bg-dc-sidebar p-1 min-w-35 lg:block absolute lg:relative z-50", 
+            "hidden h-screen bg-dc-sidebar p-1 min-w-35 md:block absolute md:relative z-50", 
             sidebar && "block"
         )}
         ref={sidebarMenuRef}
