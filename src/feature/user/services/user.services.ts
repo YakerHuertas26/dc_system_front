@@ -1,7 +1,11 @@
 import api from "@/src/lib/axios";
 
 export const userService = {
-    async getAll() {
+    // async getAll() {
+    //     const {data} = await api.get('/api/users');
+    //     return data;
+    // }
+    getAll : async ()=>{
         const {data} = await api.get('/api/users');
         return data;
     }

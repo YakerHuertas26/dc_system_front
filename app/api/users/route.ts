@@ -1,5 +1,5 @@
 import { getToken, handleResponse, serverError, unauthorizedToken } from "@/src/shared/helpers/routes.helper";
-import { NextRequest, NextResponse } from "next/server";    
+import { NextRequest } from "next/server";    
 
 const API_URL = process.env.API_URL;
 
