@@ -17,7 +17,10 @@ export default function Users() {
         </div>
     );
 
-    if (isError) return <div>Error al cargar los usuarios</div>;
+    if (isError) 
+    return <div className="flex items-center justify-center h-screen ">
+        Error al cargar los usuarios
+        </div>;
 
     return (
         <div className="px-2 py-3">

@@ -13,6 +13,7 @@ export default function ReactQueryProvider({
         defaultOptions: {
             queries: {
                 staleTime: 1000 * 60 * 5, // 5 minutes
+                refetchOnWindowFocus: false, // no volver a buscar datos al enfocar la ventana
                 retry: 1, // reintentar una vez en caso de error
             }
         }
