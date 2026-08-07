@@ -1,7 +1,7 @@
 /* SIDEBAR TYPES */
 
 import { LucideIcon } from "lucide-react";
-import { RoleName } from "@src/feature/auth/types/auth.types";
+import { RoleName } from "@/src/shared/types/general.types";
 
 // sidebar item
 export interface sidebarItem {

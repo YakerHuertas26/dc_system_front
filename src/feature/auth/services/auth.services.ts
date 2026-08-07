@@ -1,6 +1,6 @@
 import api from '@src/lib/axios';
 import { authInput } from '@src/feature/auth/schema/login.schema';
-import { authResponse } from '@src/feature/auth/types/auth.types';
+import { authResponse } from '@/src/shared/types/general.types';
 
 export const authServices = {
     async login(payload: authInput): Promise<authResponse> {  

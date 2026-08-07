@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { jwtVerify } from 'jose'
-import { jwtPayload, RoleName } from '@/src/feature/auth/types/auth.types'
+import { jwtPayload, RoleName } from '@/src/shared/types/general.types'
 
 const jwtSecret = process.env.JWT_SECRET
 
