@@ -1,4 +1,4 @@
-/* AUTH TYPES*/
+/* AUTH -USERS TYPES*/
 
 export interface authInputs {
     name: string,
@@ -33,4 +33,12 @@ export interface jwtPayload {
     roleId: number
     exp: number
     iat: number
+}
+
+/*CATEGORIES TYPE*/
+
+export interface CategoryType {
+    code: string,
+    name: string,
+    state: number
 }

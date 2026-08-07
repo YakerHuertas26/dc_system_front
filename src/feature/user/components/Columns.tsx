@@ -1,5 +1,5 @@
 import { ColumnDef } from "@tanstack/react-table";
-import { authUser } from "../../auth/types/auth.types";
+import { authUser } from "../../../shared/types/general.types";
 import PropertyElement from "@/src/shared/components/modules/PropertyElement";
 import StateElement from "@/src/shared/components/modules/StateElement";
 import BtnEdit from "@/src/shared/components/modules/btnEdit";

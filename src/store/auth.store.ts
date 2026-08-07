@@ -1,5 +1,5 @@
 import {create} from 'zustand';
-import { authUser } from '@src/feature/auth/types/auth.types';
+import { authUser } from '@/src/shared/types/general.types';
 import { persist } from 'zustand/middleware';
 
 
