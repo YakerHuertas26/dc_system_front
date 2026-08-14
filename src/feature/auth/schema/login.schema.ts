@@ -3,11 +3,11 @@ export const  baseSchema = z.object ({
     name: z
         .string()
         .trim()
-        .min(1,{error:'El compo es requerido'}),
+        .min(1,{error:'El campo es requerido'}),
     password: z
         .string()
         .trim()
-        .min(1,{error:'El compo es requerido'}),
+        .min(1,{error:'El campo es requerido'}),
 });
 
 // schema para el login

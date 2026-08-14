@@ -9,6 +9,17 @@ import { Avatar, AvatarFallback } from "@/src/shared/components/shadcn/component
 
 export const columnsUsers: ColumnDef<authUser>[] = [
     {
+        id: "Id",
+        header: "Id",
+        cell: ({ row }) => {
+            console.log(row);
+            
+            return (
+                <span>{parseInt(row.id) + 1 }</span>
+            )
+        }
+    },
+    {
         accessorKey: "name",
         header: "Nombre",
         cell: ({ row }) => {

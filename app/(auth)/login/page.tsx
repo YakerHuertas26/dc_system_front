@@ -19,7 +19,7 @@ export default function Login() {
                 />
             </header>
 
-            <main className=" mt-8">
+            <main>
                 <div className="w-full max-w-md mx-auto rounded-lg shadow-lg bg-gray-50">
                     <p className="text-center font-semibold text-indigo-800 pt-2 text-lg">
                         Iniciar sesión 

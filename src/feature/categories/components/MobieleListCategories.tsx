@@ -9,14 +9,14 @@ import { MobileComponentProps } from "@/src/shared/components/modules/table/tabl
 export default function CategoriesMobileListCard({ data }: MobileComponentProps<CategoryType>) {
 
     const category = data;
-    console.log(category);
+    ;
     
     function handleEdit(category: CategoryType) {
-        console.log(category);
+        
     }
 
     function handleDelete(category: CategoryType) {
-        console.log(category);
+        
     }
     return (
         <div  className="text-sm flex md:gap-4 rounded-lg px-2  py-4 items-center justify-between bg-white shadow-md">

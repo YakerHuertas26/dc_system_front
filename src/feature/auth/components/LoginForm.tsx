@@ -9,7 +9,6 @@ import { userAuthStore } from "@/src/store/auth.store";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { toast } from 'sonner'
-import { RoleName } from "@/src/shared/types/general.types";
 
 export default function FormLogin() {
     const { register, handleSubmit, formState: { errors }, setError } = useForm({
