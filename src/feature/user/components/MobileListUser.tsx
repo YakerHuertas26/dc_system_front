@@ -9,14 +9,14 @@ import { MobileComponentProps } from "@/src/shared/components/modules/table/tabl
 export default function UserMobileListCard({ data }: MobileComponentProps<authUser>) {
 
     const user = data;
-    console.log(user);
+    
     
     function handleEdit(user: authUser) {
-        console.log(user);
+        
     }
 
     function handleDelete(user: authUser) {
-        console.log(user);
+        
     }
     return (
         <div  className="text-sm flex md:gap-4 rounded-lg px-2  py-4 items-center justify-between bg-white shadow-md">

@@ -6,6 +6,15 @@ import { ColumnDef } from "@tanstack/react-table";
 
 export const columnsCategories: ColumnDef<CategoryType>[] = [
     {
+        id: "Id",
+        header: "Id",
+        cell: ({row}) =>{
+            return (
+                <span>{row.index + 1}</span>
+            )
+        }
+    },
+    {
         accessorKey: "code",
         header: "Código",
     },

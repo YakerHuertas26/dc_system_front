@@ -1,5 +1,6 @@
 'use client'
 import { columnsCategories } from "@/src/feature/categories/components/Columns";
+import FormCategories from "@/src/feature/categories/components/FormCategories";
 import CategoriesMobileListCard from "@/src/feature/categories/components/MobieleListCategories";
 import { useCategories } from "@/src/feature/categories/hooks/categories.hooks";
 import FilterModule from "@/src/shared/components/modules/FilterModule";
@@ -25,7 +26,10 @@ export default function Categorias() {
     
     return (
         <div className="px-2 py-3">
-            <HeaderModule name= "Categorías"/>
+            <HeaderModule name= "Categorías">
+                <FormCategories action="Crear" />
+            </HeaderModule>
+
             <div className="px-1">
                 <FilterModule/>
                 <DataTable

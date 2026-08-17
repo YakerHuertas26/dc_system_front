@@ -13,7 +13,7 @@ export default function MobileList<TData>({table, mobileComponent}: MobileListPr
     }
 
     return (
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-6 ">
             {rows.map((row) => (
                 <MobileComponent
                     key={row.id}
