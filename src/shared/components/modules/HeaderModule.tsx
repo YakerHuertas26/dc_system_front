@@ -1,16 +1,19 @@
-import { Plus } from "lucide-react";
+import DialogModule from "./DialogModule";
 
-interface headerModule{
+
+interface headerModuleProps {
     name: string
+    children: React.ReactNode
 }
 
-export default function HeaderModule({name}: headerModule) {
+export default function HeaderModule({ name, children }: headerModuleProps) {
     return (
-        <div className="flex items-center justify-between gap-3 px-3 font-bold font-outfit text-lg">
+        <div className="flex items-center justify-between gap-3 p-2 font-bold font-outfit text-lg">
             <span>Gestion de  {name} </span>
-            <div className="bg-dc-item-btn-add-300 p-1 rounded-lg shadow-lg hover:bg-dc-item-btn-add hover:cursor-pointer">
-                <Plus/>
-            </div>
+            <DialogModule>
+                {children}
+            </DialogModule>
+
         </div>
     );
 }
