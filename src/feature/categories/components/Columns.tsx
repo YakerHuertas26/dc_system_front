@@ -3,7 +3,7 @@ import BtnEdit from "@/src/shared/components/modules/btnEdit";
 import StateElement from "@/src/shared/components/modules/StateElement";
 import { CategoryType } from "@/src/shared/types/general.types";
 import { ColumnDef } from "@tanstack/react-table";
- 
+
 export const columnsCategories: ColumnDef<CategoryType>[] = [
     {
         id: "Id",
