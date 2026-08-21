@@ -3,11 +3,11 @@ import { cn } from '@src/shared/utils/cn.utils';
 
 type Props = InputHTMLAttributes<HTMLInputElement>;
 
-export default function BtnForm(props: Props) {
+export default function BtnSecundaryForm(props: Props) {
     const {className} = props;
     return (
         <input  {...props} type="submit"  
-            className={cn("w-full font-bold py-2 rounded-md text-white  bg-pink-400  hover:bg-pink-500 transition-colors cursor-pointer", className)}
+            className={cn("w-full font-bold py-2 rounded-md text-white border border-pink-400 transition-colors hover:border-pink-600 cursor-pointer", className)}
         />
     );
 }
